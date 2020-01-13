@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Aleksey Dmitriev - Developer</title>
-    <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
-    <link href="stylesheet.css" type="text/css" rel="stylesheet" media="screen"/>
+    <title>Aleksei Dmitriev - JavaScript Developer</title>
+    <link href='https://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <link href="stylesheet.css" type="text/css" rel="stylesheet" media="screen" />
     <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
+    <div class="bg"></div>
     <div class="profile">
-        <span>Aleksey Dmitriev</span>
-        <img src="images/profile.jpeg" class="rounded"/>
-        <a href="https://github.com/addmitriev" title="Github">Fork me on GitHub</a>
-        <a href="mailto:alexey@ioncloud.ru" title="Contact me">Contact me</a>
+        <h1 class="profile__name">Aleksei Dmitriev</h1>
+        <img class="profile__image" src="images/profile.jpeg" />
+
+        <div class="profile__actions">
+            <a href="https://github.com/appbak3r" title="Github">Fork me on GitHub</a>
+            <a href="mailto:alexey@ioncloud.ru" title="Contact me">Contact me</a>
+        </div>
     </div>
+
+    <script>
+        const image = document.querySelector('.profile__image');
+
+        const run = () => {
+            image.removeEventListener('click', run);
+
+            image.classList.add('animate');
+        };
+
+        image.addEventListener('click', run);
+    </script>
 </body>
+
 </html>

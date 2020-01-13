@@ -1,41 +1,90 @@
-body {
-    background: url(images/background.jpg) no-repeat;
-    background-size: 100%;
+html {
+    height: 100%;
 }
 
-.profile {
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    text-align: center;
-    color: #fff;
+body {
+    margin: 0;
     font-family: 'Exo 2', sans-serif;
 }
 
-.profile img {
+.bg {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: #fff url(https://source.unsplash.com/random) no-repeat;
+    background-size: cover;
+    filter: blur(4px);
+    z-index: -1;
+    transform: scale(1.2);
+}
+
+.bg:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.profile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+    grid-row-gap: 30px;
+    ;
+}
+
+.profile .profile__image {
     border-radius: 100%;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
-    width: 200px;
+    width: 100%;
+    cursor: pointer;
 }
 
-.profile span, .profile a {
+.profile .profile__image.animate {
+    animation: scale 1s infinite linear;
+}
+
+.profile .profile__name {
+    color: #fff;
+    text-align: center;
+}
+
+.profile .profile__actions {
+    text-align: center;
+}
+
+.profile .profile__actions a {
     display: block;
-    margin: 10px 0;
     font-size: 20px;
     text-decoration: none;
     color: #ffffff;
+    transition: transform 300ms ease-in-out;
+    min-height: 30px;
 }
 
-.profile a:hover, .profile a:active, .profile a:visited {
+.profile .profile__actions a:hover, .profile .profile__actions a:active, .profile .profile__actions a:visited {
     color: #ffffff;
 }
 
-.profile a:hover {
-    color: #7695c2;
+.profile .profile__actions a:hover {
+    transform: rotateX(25deg);
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.7);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
